@@ -1,0 +1,1 @@
+angular.module("ecommerce",["ngRoute", "angular-loading-bar"]);

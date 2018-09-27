@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ecommerce">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="node_modules/angular-loading-bar/build/loading-bar.min.css"/>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="app.js"></script>
+    <script src="route.js"></script>
+    <script src="service/categoryService.js"></script>
+    <script src="service/productService.js"></script>
+    <script src="controller/homeController.js"></script>
+    <script src="controller/productsController.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div ng-include="'view/home.html'"></div>
+    <div ng-view="view"></div>
+</div>
+
+</body>
+</html>
+
