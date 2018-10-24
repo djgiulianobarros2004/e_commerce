@@ -1,8 +1,25 @@
 <div>
-    <p>Produtos da categoria {{categoria.description}}</p>
-    <code>
-        <pre>
-            {{produtos|json}}
-        </pre>
-    </code>
+    <h1 class="display-4">Categoria|{{categoria.description}}</h1>
+
+    <div class="row">
+        <div ng-repeat="prod in produtos" class="col-md-4">
+            <div class="card" style="width: 25rem;">
+                <img class="img-fluid" ng-src="data:image/(png|jpg|webp);base64,{{prod.img}}"/>
+                <div class="card-body">
+                    <p>{{prod.description}}</p>
+                    <a>Preço: R${{prod.price}}</a>
+                    <p>Marca: {{prod.brand}}</p>
+                    <div>
+                        <button type="button" class="btn btn-primary" ng-click="visualizarUmProduto(prod.id)">
+                            Visualizar
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="adicionarNoCarrinho(prod)">
+                            Add Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -1,4 +1,4 @@
-angular.module("ecommerce").controller("homeController", function ($scope, categoryService) {
+angular.module("ecommerce").controller("homeController", function ($scope, $location, categoryService) {
 
     var carregarCategorias = function () {
         categoryService.listarTodasAsCategorias()
@@ -9,6 +9,7 @@ angular.module("ecommerce").controller("homeController", function ($scope, categ
                 console.log(ex);
             });
     };
+
     $scope.buscar = function (categoriaId) {
         categoryService.buscarCategoriaPorId(categoriaId)
             .then(function (response) {
@@ -18,5 +19,14 @@ angular.module("ecommerce").controller("homeController", function ($scope, categ
                 alert(response.data);
             })
     };
+
+    $scope.visualizarCarrinho = function () {
+        $location.url("/carrinho")
+    };
+
+    $scope.fazerlogin = function(){
+        $location.url("/login")
+    };
+
     carregarCategorias();
 });

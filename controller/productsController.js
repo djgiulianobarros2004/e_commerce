@@ -1,4 +1,4 @@
-angular.module("ecommerce").controller("productsController", function ($scope, productService, categoryService, $routeParams) {
+angular.module("ecommerce").controller("productsController", function ($scope, $location, productService, categoryService, carrinhoService, $routeParams) {
 
     var carregarProdutos = function () {
         var id = $routeParams.idCategoria;
@@ -15,11 +15,21 @@ angular.module("ecommerce").controller("productsController", function ($scope, p
         var  id = $routeParams.idCategoria;
         categoryService.buscarCategoriaPorId(id)
             .then(function (response) {
+                $scope.categoria = response.data;
             })
             .catch(function (response) {
                 alert(response);
             })
     };
+
+    $scope.visualizarUmProduto = function (idDoProduto) {
+        $location.url("/detalhe/" + idDoProduto)
+    };
+
+    $scope.adicionarNoCarrinho = function (Produto) {
+        carrinhoService.addProduto(Produto, 1);
+    };
+
     carregarCategoria();
     carregarProdutos();
 });
