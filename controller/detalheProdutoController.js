@@ -11,7 +11,6 @@ angular.module("ecommerce").controller("detalheProdutoController", function ($sc
             })
     }
 
-
     $scope.adicionarNoCarrinho = function (Produto, campoA){
         carrinhoService.addProduto(Produto, campoA);
     }
