@@ -1,0 +1,23 @@
+<div ng-controller="listaCategoriasController">
+
+    <h1 class="display-4">Listar|Categorias</h1>
+
+    <table class="table">
+        <thead>
+        <th>Descrição</th>
+        <th>Ação</th>
+        </thead>
+        <tbody ng-repeat="categoria in categorias">
+        <tr>
+            <td>{{categoria.description}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="editarCategoriaDoBanco(categoria.id)">Editar</button>
+                <button class="btn btn-danger" ng-click="removerCategoriaDoBanco(categoria.id)">Remover</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="#!cadastroCategorias">Cadastrar</a>
+
+</div>

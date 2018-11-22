@@ -5,8 +5,7 @@ angular.module("ecommerce").controller("loginController", function ($scope, $loc
         loginService.cadastrar(cadUsuario)
         //call back
             .then(function (response) {
-                $scope.cadUsuario = response.data;
-
+               alert("Usuário cadastrado com sucesso.")
             })
             .catch(function (response) {
                 alert("Não foi possível fazer o cadastro. Usuário já existe!");
@@ -21,10 +20,11 @@ angular.module("ecommerce").controller("loginController", function ($scope, $loc
             .then(function (response) {
                 $scope.autUsuario = response.data;
                 localStorage.setItem("usuario", JSON.stringify($scope.autUsuario));
+                localStorage.setItem("token", JSON.stringify($scope.autUsuario.token));
                 $location.url("/carrinho")
             })
             .catch(function (response) {
-                alert(response.data);
+                alert("Login ou senha inválidos!");
             })
     }
 

@@ -22,11 +22,23 @@
                         </p>
                     </div>
                 </li>
+                <li name="menuCad" class="nav-item dropdown" ng-show="isAdmin()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Cadastros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#!listaCategorias">Categorias</a>
+                        <a class="dropdown-item" href="#!listaProdutos">Produtos</a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div>
             <button type="button" class="btn btn-success" ng-click="visualizarCarrinho()">Carrinho</button>
-            <button type="button" class="btn btn-primary" ng-click="fazerlogin()">Login</button>
+            <button type="button" class="btn btn-primary" ng-show="isNotLogged()" ng-click="fazerlogin()">Login</button>
+            <button type="button" class="btn btn-danger" ng-show="isLogged()" ng-click="desfazerLogin()">Logout</button>
         </div>
     </nav>
 </div>

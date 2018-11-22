@@ -1,1 +1,1 @@
-angular.module("ecommerce",["ngRoute", "angular-loading-bar"]);
+angular.module("ecommerce",["ngRoute", "angular-loading-bar", "naif.base64"]);

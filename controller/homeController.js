@@ -24,8 +24,42 @@ angular.module("ecommerce").controller("homeController", function ($scope, $loca
         $location.url("/carrinho")
     };
 
-    $scope.fazerlogin = function(){
+    $scope.fazerlogin = function () {
         $location.url("/login")
+    };
+
+    $scope.isAdmin = function () {
+        var usuario = localStorage.getItem("usuario");
+        usuario = JSON.parse(usuario);
+        if (usuario) {
+            if (usuario.personRole == "ADMINISTRATOR") {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    $scope.isLogged = function () {
+        var usuario = localStorage.getItem("usuario");
+        usuario = JSON.parse(usuario);
+        if (usuario) {
+            return true;
+        }
+        return false;
+    };
+
+    $scope.isNotLogged = function () {
+        var usuario = localStorage.getItem("usuario");
+        usuario = JSON.parse(usuario);
+        if (usuario) {
+            return false;
+        }
+        return true;
+    };
+
+    $scope.desfazerLogin = function () {
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("token");
     };
 
     carregarCategorias();

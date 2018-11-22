@@ -1,0 +1,57 @@
+<div ng-controller="homeController">
+
+    <h1 class="display-4">Cadastrar|Produto</h1>
+    <br>
+
+    <form name="formProduto">
+
+        <div class="form-group">
+            <label>Categoria</label>
+            <select ng-model="cadProduto.category">
+                <option ng-repeat="cat in categorias"
+                        class="dropdown-item"
+                        ng-value="cat">
+                    {{cat.description}}
+                </option>
+            </select>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>Descrição:</label>
+            <input name="campoDescricao"
+                   type="text"
+                   ng-model="cadProduto.description"
+                   class="form-control">
+
+            <label>Preço:</label>
+            <input name="campoPreco"
+                   type="number"
+                   ng-model="cadProduto.price"
+                   class="form-control">
+
+            <label>Preço promocional:</label>
+            <input name="campoPrecoPromo"
+                   type="number"
+                   ng-model="cadProduto.promotionalPrice"
+                   class="form-control">
+
+            <label>Marca:</label>
+            <input name="campoMarca"
+                   type="text"
+                   ng-model="cadProduto.brand"
+                   class="form-control">
+
+            <label>Quantidade:</label>
+            <input name="campoQtde"
+                   type="number"
+                   ng-model="cadProduto.quantity"
+                   class="form-control">
+            <br>
+            <label>Imagem:</label>
+            <input type="file" ng-model="cadProduto.img" base-sixty-four-input>
+        </div>
+
+        <button class="btn btn-primary" ng-click="cadastrarProd(cadProduto)">Salvar</button>
+    </form>
+</div>

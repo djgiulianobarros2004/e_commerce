@@ -20,6 +20,7 @@ angular.module("ecommerce").factory("loginService", function ($http) {
         }
         return $http(req)
     }
+
     return {
         cadastrar: _cadastrar,
         autenticar: _autenticar

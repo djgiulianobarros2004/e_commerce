@@ -1,0 +1,17 @@
+<div ng-controller="cadCatController">
+
+    <h1 class="display-4">Cadastrar|Categoria</h1>
+    <br>
+    <form name="formCategoria">
+        <div class="form-group">
+            <label>Descrição:</label>
+            <input name="campoDescricao"
+                   type="text"
+                   ng-model="cadCategoria.description"
+                   class="form-control">
+        </div>
+
+        <button class="btn btn-primary" ng-click="cadastrarCat(cadCategoria)">Salvar</button>
+
+    </form>
+</div>
