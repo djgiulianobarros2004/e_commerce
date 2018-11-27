@@ -21,7 +21,7 @@ angular.module("ecommerce").controller("loginController", function ($scope, $loc
                 $scope.autUsuario = response.data;
                 localStorage.setItem("usuario", JSON.stringify($scope.autUsuario));
                 localStorage.setItem("token", JSON.stringify($scope.autUsuario.token));
-                $location.url("/carrinho")
+                $location.url("/finalizarCompra")
             })
             .catch(function (response) {
                 alert("Login ou senha inválidos!");

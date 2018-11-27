@@ -1,5 +1,5 @@
 <div>
-    <h1 class="display-4">Carrinho|pedido</h1>
+    <h1 class="display-4">Carrinho | pedido</h1>
 
     <table class="table">
         <thead>
@@ -22,11 +22,12 @@
             <td>{{prod.price}}</td>
             <td>{{prod.qtde*prod.price}}</td>
             <td>
-                <button type="button" class="btn btn-danger" ng-click="removerProdutoDoCarrinho(prod.id)">Remover</button>
+                <button type="button" class="btn btn-danger" ng-click="removerProdutoDoCarrinho(prod.id)">Remover
+                </button>
             </td>
         </tr>
         </tbody>
     </table>
     <h1>Total: R$ {{total}}</h1>
-    <button type="button" class="btn btn-success" ng-click="">Finalizar Compra</button>
+    <button class="btn btn-success" ng-click="finalizarCompra()">Finalizar Compra</button>
 </div>

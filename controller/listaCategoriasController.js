@@ -11,11 +11,11 @@ angular.module("ecommerce").controller("listaCategoriasController", function ($s
     };
 
     $scope.removerCategoriaDoBanco = function(id){
-        $scope.categoria = categoryService.removerCategoria(id);
+        $scope.produto = categoryService.removerCategoria(id);
     };
 
     $scope.editarCategoriaDoBanco = function(id){
-        $scope.categoria = categoryService.editarCategoria();
+        $scope.produto = categoryService.editarCategoria();
     };
 
     carregarCategorias();

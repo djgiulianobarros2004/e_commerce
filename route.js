@@ -45,4 +45,14 @@ angular.module("ecommerce").config(["$routeProvider", function ($routeProvider) 
         controller: "listaProdutosController"
     });
 
+    $routeProvider.when("/minhasCompras", {
+        templateUrl: "view/minhasCompras.html",
+        controller: "minhasComprasController"
+    });
+
+    $routeProvider.when("/finalizarCompra", {
+        templateUrl: "view/finalizarCompra.html",
+        controller: "finalizarCompraController"
+    });
+
 }]);

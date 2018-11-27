@@ -48,12 +48,30 @@ angular.module("ecommerce").factory("carrinhoService", function ($http) {
 
     };
 
+    var _enviarCompra = function () {
+        var carrinho = localStorage.getItem("carrinho");
+        carrinho = JSON.parse(carrinho);
+        var token = localStorage.getItem("token");
+        token = JSON.parse(token);
+        var req = {
+            method: "POST",
+            url: url + "/order",
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/json"
+            },
+            data: carrinho
+        };
+        return $http(req);
+    };
+
     return {
         addProduto: _addProduto,
         removerProduto: _removerProduto,
         listarProdutos: _listarProdutos,
         atualizarProduto: _atualizarProduto,
-        limparCarrinho: _limparCarrinho
+        limparCarrinho: _limparCarrinho,
+        enviarCompra: _enviarCompra
     }
 
 });

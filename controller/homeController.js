@@ -13,7 +13,7 @@ angular.module("ecommerce").controller("homeController", function ($scope, $loca
     $scope.buscar = function (categoriaId) {
         categoryService.buscarCategoriaPorId(categoriaId)
             .then(function (response) {
-                $scope.categoria = response.data;
+                $scope.produto = response.data;
             })
             .catch(function (response) {
                 alert(response.data);

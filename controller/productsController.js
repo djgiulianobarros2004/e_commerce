@@ -15,7 +15,7 @@ angular.module("ecommerce").controller("productsController", function ($scope, $
         var  id = $routeParams.idCategoria;
         categoryService.buscarCategoriaPorId(id)
             .then(function (response) {
-                $scope.categoria = response.data;
+                $scope.produto = response.data;
             })
             .catch(function (response) {
                 alert(response);
