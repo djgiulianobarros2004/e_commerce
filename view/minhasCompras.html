@@ -8,15 +8,46 @@
         <th>Data</th>
         <th>Ação</th>
         </thead>
-        <tbody ng-repeat="produto in produtos">
+        <tbody ng-repeat="compra in compras">
         <tr>
-            <td>{{produto.id}}</td>
-            <td>{{produto.date}}</td>
+            <td>{{compra.id}}</td>
+            <td>{{compra.orderDate}}</td>
             <td>
-                <button class="btn btn-primary" ng-click="listarMinhasCompras(produto)">Visualizar</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" ng-click="listarDetalhesCompras(compra.id)">Visualizar</button>
             </td>
         </tr>
         </tbody>
     </table>
 
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <table class="table">
+                <thead>
+                <th>ID</th>
+                <th>Foto</th>
+                <th>Descrição</th>
+                <th>Qtde</th>
+                <th>Valor Un.</th>
+                <th>Total</th>
+                </thead>
+                <tbody ng-repeat="prod in produtosVenda">
+                <tr>
+                    <td>{{prod.id}}</td>
+                    <td>
+                        <div class="col-5">
+                            <img class="img-fluid" ng-src="data:image/(png|jpg|webp);base64,{{prod.product.img}}"/>
+                        </div>
+                    </td>
+                    <td>{{prod.product.description}}</td>
+                    <td>{{prod.qtde}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.qtde*prod.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

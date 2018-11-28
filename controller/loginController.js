@@ -11,7 +11,7 @@ angular.module("ecommerce").controller("loginController", function ($scope, $loc
                 alert("Não foi possível fazer o cadastro. Usuário já existe!");
             })
 
-    }
+    };
 
     $scope.autenticarUsuario = function (autUsuario) {
 

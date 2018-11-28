@@ -1,5 +1,7 @@
 angular.module("ecommerce").factory("carrinhoService", function ($http) {
 
+    var url = "http://ecommerce-cpw.herokuapp.com/rest";
+
     var carrinho = [];
 
     var _addProduto = function (produto, qtde) {
@@ -48,9 +50,8 @@ angular.module("ecommerce").factory("carrinhoService", function ($http) {
 
     };
 
-    var _enviarCompra = function () {
-        var carrinho = localStorage.getItem("carrinho");
-        carrinho = JSON.parse(carrinho);
+    var _enviarCompraDoCarrinho = function (carrinho) {
+
         var token = localStorage.getItem("token");
         token = JSON.parse(token);
         var req = {
@@ -65,13 +66,43 @@ angular.module("ecommerce").factory("carrinhoService", function ($http) {
         return $http(req);
     };
 
+    var _listarComprasService = function () {
+        var token = localStorage.getItem("token");
+        token = JSON.parse(token);
+        var req = {
+            method: "GET",
+            url: url + "/order/list/1",
+            headers: {
+                "Authorization": "Bearer " + token
+            },
+            data: carrinho
+        };
+        return $http(req);
+    }
+
+    var _listarProdutosPorID = function (idVenda) {
+        var token = localStorage.getItem("token");
+        token = JSON.parse(token);
+        var req = {
+            method: "GET",
+            url: url + "/order/" + idVenda,
+            headers: {
+                "Authorization": "Bearer " + token
+            },
+            data: carrinho
+        };
+        return $http(req);
+    }
+
     return {
         addProduto: _addProduto,
         removerProduto: _removerProduto,
         listarProdutos: _listarProdutos,
         atualizarProduto: _atualizarProduto,
         limparCarrinho: _limparCarrinho,
-        enviarCompra: _enviarCompra
+        enviarCompraDoCarrinho: _enviarCompraDoCarrinho,
+        listarProdutosPorID: _listarProdutosPorID,
+        listarComprasService: _listarComprasService
     }
 
 });
